@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Page Title</title>
+    <script src="three.js"></script>
+    <script src="OrbitControls.js"></script>
+    <script src="STLLoader.js"></script>
+    <script src="LegacyJSONLoader.js"></script>
+    <script src="jquery-3.3.1.min.js"></script>
+
+    <script type = "text/javascript">
+            var jloader = new THREE.LegacyJSONLoader();
+            var sloader = new THREE.STLLoader();
+            var controls;
+        
+            console.log("1");
+            function draw3D() {
+                function setup() {
+                    jloader.load('torso.json', function (geometry) {
+                        var material = new THREE.MeshPhongMaterial( {
+                            color: new THREE.Color("hsl(" + ((max_hbco - hbco[0]) * color_factor * 360) + ", 100%, 50%)"),
+                        });
+                        
+                        var mesh = new THREE.Mesh(geometry, material);
+                        mesh.name = "fetus";
+                        pos["fetus"] = mesh;
+                        scene.add(mesh);
+                        $('#items-list').append('<input type="checkbox" class="item" value="fetus" />fetus<br/>');
+                    });
+                }
+                
+                function animate() {
+                    requestAnimationFrame(animate);
+                    controls.update();
+                    renderer.render(scene, camera);
+                }
+                var scene = new THREE.Scene();
+                var camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+                var renderer = new THREE.WebGLRenderer();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+                renderer.setClearColor(0x000000, 1);
+                document.body.appendChild(renderer.domElement);
+                
+                controls = new THREE.OrbitControls(camera, renderer.domElement);
+                
+                setup();
+                animate();
+            /*
+            var loader = new THREE.ObjectLoader();
+            console.log("2");
+            loader.load(
+                'torso.json',
+                function(geometry, materials) {
+                    var material = materials[0];
+                    var object = new THREE.Mesh(geometry, material);
+                    scene.add(object);
+                }
+            );
+            */
+            }
+    </script>
+</head>
+
+<body onload="draw3D()">
+</body>
+
+</html>
