@@ -119,7 +119,7 @@
 			
 			var span = document.getElementById("shapecanvas");
 			span.appendChild(renderer.domElement);
-			
+
 			
 			controls = new THREE.OrbitControls(camera, renderer.domElement);
 			
@@ -176,127 +176,7 @@
 			dynamic_context.strokeStyle = '#ff0000';
 			dynamic_context.stroke();
 		}
-		
-		function onDocumentMouseMove(event) {
-			var offset = $('#shapecanvas canvas').offset();
-			mouse.x = ((event.pageX - offset.left) / width) * 2 - 1;
-			mouse.y = - ((event.pageY - offset.top) / height) * 2 + 1;
-		}
-		
-		function onDocumentMouseDown(event) {
-			var offset = $('#shapecanvas canvas').offset();
-			last_mouse.x = ((event.pageX - offset.left) / width) * 2 - 1;
-			last_mouse.y = - ((event.pageY - offset.top) / height) * 2 + 1;
-		}
-		
-		function onDocumentMouseUp(event) {
-			var offset = $('#shapecanvas canvas').offset();
-			mouse.x = ((event.pageX - offset.left) / width) * 2 - 1;
-			mouse.y = - ((event.pageY - offset.top) / height) * 2 + 1;
-			
-			if (Math.sqrt((mouse.x - last_mouse.x) * (mouse.x - last_mouse.x) + (mouse.y - last_mouse.y) * (mouse.y - last_mouse.y)) < 0.005) {
-				raycaster.setFromCamera(mouse, camera);
-				var models = $.map(pos, function(value, key) { return value });
-				var hits = raycaster.intersectObjects(models);
-								
-				for (var key in pos) pos[key].material.transparent = true;
-				$('#item-selected').html('&nbsp;');
-				
-				if (hits.length > 0) {
-					var selected = hits[0].object;
-					selected.material.transparent = false;
-					$('#item-selected').html(selected.name);
-				}
-			}
-		}
-		
-		// Function to execute when the window changes its size
-		window.addEventListener('resize', function() {
-			width = window.innerWidth - 316;
-			height = window.innerHeight - 76;
-			camera.aspect = width / height;
-			camera.updateProjectionMatrix();
-			renderer.setSize(width, height);
-		}, false);
 	</script>
-	
-	<style>
-		html {
-			overflow: hidden;
-		}
-		
-		body {
-			background-color: black;
-		}
-		
-		#title {
-			height: 60px;
-			text-align: center;
-			font-size: 3em;
-			font-family: impact;
-			color: white;
-		}
-		
-		#content {
-			text-align: center;
-		}
-		
-		#viewer {
-			float: left;
-		}
-		
-		#shapecanvas {
-			border: none;
-		}
-		
-		#controls {
-			float: left;
-			width: 290px;
-			margin: 5px;
-			color: white;
-			font-family: impact;
-		}
-		
-		#all-items-container {
-			text-align: left;
-			border: 1px solid white;
-			border-bottom: none;
-			background: white;
-			color: black;
-		}
-		
-		#items-list {
-			height: 100px;
-			text-align: left;
-			border: 1px solid white;
-			overflow-y: scroll;
-		}
-		
-		#item-selected {
-			background: rgba(0,255,0,0.3);
-		}
-		
-		#surface-slider, #hbco-slider {
-			width: 290px;
-		}
-		
-		#hbco-time-container, #hbco-value-container {
-			float: left;
-			width: 50%;
-		}
-		
-		#hbco-chart-container {
-			position: relative;
-		}
-		
-		#hbco-chart, #hbco-chart-line {
-			position: absolute;
-			left: 0;
-			top: 25px;
-			width: 100%;
-			height: 100px;
-		}
-	</style>
 	
 	</head>
 	<body onload="draw3D();">
