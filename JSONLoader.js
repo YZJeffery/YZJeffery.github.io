@@ -1,4 +1,4 @@
-import { Loader } from './Loader';
+import { Loader } from '../Loader';
 import { AnimationClip } from '../animation/AnimationClip';
 import { Vector3 } from '../math/Vector3';
 import { Vector4 } from '../math/Vector4';
