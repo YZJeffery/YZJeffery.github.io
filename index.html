@@ -117,14 +117,7 @@
 			renderer.setSize(width, height);
 			renderer.setClearColor(0x000000, 1);
 			
-			var span = document.getElementById("shapecanvas");
-			span.appendChild(renderer.domElement);
-			
 			controls = new THREE.OrbitControls(camera, renderer.domElement);
-			
-			span.addEventListener('mousemove', onDocumentMouseMove, false);
-			span.addEventListener('mousedown', onDocumentMouseDown, false);
-			span.addEventListener('mouseup', onDocumentMouseUp, false);
 			
 			setup();
 			animate();
