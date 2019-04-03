@@ -66,6 +66,15 @@
 					$('#items-list').append('<input type="checkbox" class="item" value="airways" />airways<br/>');
 				});
 				
+				//try torso
+				jloader.load('./models/torso.json', function (geometry) {
+					var mesh = new THREE.Mesh(geometry, unselected_airways);
+					mesh.name = "airways";
+					pos["airways"] = mesh;
+					scene.add(mesh);
+					$('#items-list').append('<input type="checkbox" class="item" value="airways" />airways<br/>');
+				});
+				
 				jloader.load('./models/left_lung.json', function (geometry) {
 					var mesh = new THREE.Mesh(geometry, unselected_left_lung);
 					mesh.renderOrder = 0.1;
