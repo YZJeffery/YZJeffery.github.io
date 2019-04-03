@@ -126,19 +126,6 @@
 			setup();
 			animate();
 			
-			$('.surface-item').change(function() {
-				if ($(this).is(':checked')) {
-					surface_mesh.visible = false;
-				}
-				else {
-					surface_mesh.visible = true;
-				}
-			});
-			
-			$(document).on('input change', '#surface-slider', function() {
-				surface_material.opacity = $(this).val();
-			});
-			
 			$(document).on('input change', '#hbco-slider', function() {
 				pos["fetus"].material.color.setHSL((max_hbco - hbco[$(this).val()]) * color_factor, 1.0, 0.5);
 				$("#hbco-time").html($(this).val());
@@ -218,7 +205,7 @@
 						<canvas id="hbco-chart"></canvas>
 						<canvas id="hbco-chart-line"></canvas>
 					</div>
-					
+
 				</div>
 			</div>
 		</div>
