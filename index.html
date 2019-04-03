@@ -55,6 +55,7 @@
 					$('#items-list').append('<input type="checkbox" class="item" value="airways" />airways<br/>');
 				});
 				
+				
 				var sloader = new THREE.STLLoader();
 				sloader.load('./models/pregnant_woman.stl', function(geometry) {
 					var mesh = new THREE.Mesh(geometry, surface_material);
