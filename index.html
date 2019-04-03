@@ -125,90 +125,13 @@
 			
 			setup();
 			animate();
-			
-			
-			$(document).on('input change', '#hbco-slider', function() {
-				pos["fetus"].material.color.setHSL((max_hbco - hbco[$(this).val()]) * color_factor, 1.0, 0.5);
-				$("#hbco-time").html($(this).val());
-				$("#hbco-value").html(hbco[$(this).val()]);
-				
-				var dynamic_canvas = document.getElementById("hbco-chart-line");
-				var dynamic_context = dynamic_canvas.getContext("2d");
-				
-				var x_pos = 25 + 5.6 * parseInt($(this).val());
-				
-				dynamic_context.clearRect(0, 0, dynamic_canvas.width, dynamic_canvas.height);
-				dynamic_context.beginPath();
-				dynamic_context.moveTo(x_pos, 0);
-				dynamic_context.lineTo(x_pos, 115);
-				dynamic_context.strokeStyle = '#ff0000';
-				dynamic_context.stroke();
-			});
-			
-			var background_canvas = document.getElementById("hbco-chart");
-			var background_context = background_canvas.getContext("2d");
-			
-			var imageObj = new Image();
-			imageObj.onload = function() {
-				background_context.drawImage(this, 0, 0, this.width, this.height, 0, 0, background_canvas.width, background_canvas.height);
-			};
-			
-			imageObj.src = "./hbco_chart.png";
-			
-			var dynamic_canvas = document.getElementById("hbco-chart-line");
-			var dynamic_context = dynamic_canvas.getContext("2d");
-			
-			dynamic_context.beginPath();
-			dynamic_context.moveTo(25, 0);
-			dynamic_context.lineTo(25, 115);
-			dynamic_context.strokeStyle = '#ff0000';
-			dynamic_context.stroke();
+
 		}
 	</script>
 	
 	
 	</head>
 	<body onload="draw3D();">
-		<div id="title">
-			<span>Smoking in pregnancy</span>
-		</div>
-		<div id="content">
-			<div id="viewer">
-				<span id="shapecanvas"></span>
-			</div>
-			<div id="controls">
-				<span>CONTROLS</span><br/>
-				<br/>
-				<span>Check to hide / Uncheck to show</span>
-				<div id="all-items-container">
-					<input type="checkbox" class="all-items" value="all_items" />All elements<br/>
-				</div>
-				<div id="items-list"></div>
-				<br/>
-				<span>Element selected:</span><br/>
-				<div id="item-selected">&nbsp;</div>
-				<br/>
-				<input type="checkbox" class="surface-item" value="surface" />Hide surface<br/>
-				<br/>
-				<span>Surface opacity:</span><br/>
-				<input id="surface-slider" type="range" value="0.3" min="0" max="1" step="0.05" /><br/>
-				<br/>
-				<span>HbCO (16-h exposure):</span><br/>
-				<input id="hbco-slider" type="range" value="0" min="0" max="24" step="1" />
-				<div id="hbco-values">
-					<div id="hbco-time-container">
-						Time: <span id="hbco-time">0</span> h
-					</div>
-					<div id="hbco-value-container">
-						Fetal HbCO: <span id="hbco-value">0</span> %
-					</div>
-					<div id="hbco-chart-container">
-						<canvas id="hbco-chart"></canvas>
-						<canvas id="hbco-chart-line"></canvas>
-					</div>
-
-				</div>
-			</div>
-		</div>
+		
 	</body>
 </html>
