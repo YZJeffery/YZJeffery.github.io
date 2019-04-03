@@ -294,7 +294,9 @@ Object.assign( JSONLoader.prototype, {
 					geometry.faces.push( faceA );
 					geometry.faces.push( faceB );
 
-				} else {
+				} 
+				
+				else {
 
 					face = new Face3();
 					face.a = faces[ offset ++ ];
