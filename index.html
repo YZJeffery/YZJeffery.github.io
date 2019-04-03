@@ -122,40 +122,8 @@
 			setup();
 			animate();
 			
-			$('.surface-item').change(function() {
-				if ($(this).is(':checked')) {
-					surface_mesh.visible = false;
-				}
-				else {
-					surface_mesh.visible = true;
-				}
-			});
-			
-			$(document).on('input change', '#surface-slider', function() {
-				surface_material.opacity = $(this).val();
-			});
-			
-			$(document).on('input change', '#hbco-slider', function() {
-				pos["fetus"].material.color.setHSL((max_hbco - hbco[$(this).val()]) * color_factor, 1.0, 0.5);
-				$("#hbco-time").html($(this).val());
-				$("#hbco-value").html(hbco[$(this).val()]);
-				
-				var dynamic_canvas = document.getElementById("hbco-chart-line");
-				var dynamic_context = dynamic_canvas.getContext("2d");
-				
-				var x_pos = 25 + 5.6 * parseInt($(this).val());
-				
-				dynamic_context.clearRect(0, 0, dynamic_canvas.width, dynamic_canvas.height);
-				dynamic_context.beginPath();
-				dynamic_context.moveTo(x_pos, 0);
-				dynamic_context.lineTo(x_pos, 115);
-				dynamic_context.strokeStyle = '#ff0000';
-				dynamic_context.stroke();
-			});
-			
-			var background_canvas = document.getElementById("hbco-chart");
-			var background_context = background_canvas.getContext("2d");
 		}
+
 	</script>
 	</head>
 
