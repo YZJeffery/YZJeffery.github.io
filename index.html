@@ -104,6 +104,7 @@
 			setup();
 			animate();
 			
+			
 			$(document).on('input change', '#hbco-slider', function() {
 				pos["fetus"].material.color.setHSL((max_hbco - hbco[$(this).val()]) * color_factor, 1.0, 0.5);
 				$("#hbco-time").html($(this).val());
