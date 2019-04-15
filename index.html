@@ -125,7 +125,49 @@
 		}
 	</script>
 	
+	
 	</head>
 	<body onload="draw3D();">
+		<div id="title">
+			<span>Smoking in pregnancy</span>
+		</div>
+		<div id="content">
+			<div id="viewer">
+				<span id="shapecanvas"></span>
+			</div>
+			<div id="controls">
+				<span>CONTROLS</span><br/>
+				<br/>
+				<span>Check to hide / Uncheck to show</span>
+				<div id="all-items-container">
+					<input type="checkbox" class="all-items" value="all_items" />All elements<br/>
+				</div>
+				<div id="items-list"></div>
+				<br/>
+				<span>Element selected:</span><br/>
+				<div id="item-selected">&nbsp;</div>
+				<br/>
+				<input type="checkbox" class="surface-item" value="surface" />Hide surface<br/>
+				<br/>
+				<span>Surface opacity:</span><br/>
+				<input id="surface-slider" type="range" value="0.3" min="0" max="1" step="0.05" /><br/>
+				<br/>
+				<span>HbCO (16-h exposure):</span><br/>
+				<input id="hbco-slider" type="range" value="0" min="0" max="24" step="1" />
+				<div id="hbco-values">
+					<div id="hbco-time-container">
+						Time: <span id="hbco-time">0</span> h
+					</div>
+					<div id="hbco-value-container">
+						Fetal HbCO: <span id="hbco-value">0</span> %
+					</div>
+					<div id="hbco-chart-container">
+						<canvas id="hbco-chart"></canvas>
+						<canvas id="hbco-chart-line"></canvas>
+					</div>
+
+				</div>
+			</div>
+		</div>
 	</body>
 </html>
