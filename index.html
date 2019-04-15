@@ -7,8 +7,6 @@
 	<script src="STLLoader.js"></script>
 	<script src="jquery-3.2.0.min.js"></script>
 	<script type="text/javascript">
-		var mouse = new THREE.Vector2(0, 0);
-		var last_mouse = new THREE.Vector2(0, 0);
 		var raycaster = new THREE.Raycaster();
 		var jloader = new THREE.JSONLoader();
 		var sloader = new THREE.STLLoader();
@@ -20,27 +18,9 @@
 		var items_opacity = 0.4;
 		var items_transparent = true;
 		var unselected_airways = new THREE.MeshPhongMaterial({color: 0xEFD5DC, opacity: items_opacity, transparent: items_transparent, side: THREE.DoubleSide});
-		var selected_airways = new THREE.MeshPhongMaterial({color: 0xEFD5DC, opacity: items_opacity, transparent: items_transparent, side: THREE.DoubleSide});
-		var unselected_left_lung = new THREE.MeshPhongMaterial({color: 0xCCA994, opacity: items_opacity, transparent: items_transparent, side: THREE.BackSide});
-		var selected_left_lung = new THREE.MeshPhongMaterial({color: 0xCCA994, opacity: items_opacity, transparent: items_transparent, side: THREE.BackSide});
-		var unselected_right_lung = new THREE.MeshPhongMaterial({color: 0xCCA994, opacity: items_opacity, transparent: items_transparent, side: THREE.FrontSide});
-		var selected_right_lung = new THREE.MeshPhongMaterial({color: 0xCCA994, opacity: items_opacity, transparent: items_transparent, side: THREE.FrontSide});
-		var unselected_heart = new THREE.MeshPhongMaterial({color: 0xA83121, opacity: items_opacity, transparent: items_transparent, side: THREE.BackSide});
-		var selected_heart = new THREE.MeshPhongMaterial({color: 0xA83121, opacity: items_opacity, transparent: items_transparent, side: THREE.BackSide});
-		var unselected_pelvis = new THREE.MeshPhongMaterial({color: 0xAAAAAA, opacity: items_opacity, transparent: items_transparent, side: THREE.BackSide});
-		var selected_pelvis = new THREE.MeshPhongMaterial({color: 0x22AA00, opacity: items_opacity, transparent: items_transparent, side: THREE.BackSide});
-		var unselected_uterus = new THREE.MeshPhongMaterial({color: 0xF77E7E, opacity: items_opacity, transparent: items_transparent, side: THREE.FrontSide});
-		var selected_uterus = new THREE.MeshPhongMaterial({color: 0xF77E7E, opacity: items_opacity, transparent: items_transparent, side: THREE.FrontSide});
-		var unselected_vocal_tract = new THREE.MeshPhongMaterial({color: 0xEFD5DC, opacity: items_opacity, transparent: items_transparent, side: THREE.BackSide});
-		var selected_vocal_tract = new THREE.MeshPhongMaterial({color: 0xEFD5DC, opacity: items_opacity, transparent: items_transparent, side: THREE.BackSide});
-		var unselected_arteries = new THREE.MeshPhongMaterial({color: 0xBA2142, opacity: items_opacity, transparent: items_transparent, side: THREE.DoubleSide});
-		var selected_arteries = new THREE.MeshPhongMaterial({color: 0xBA2142, opacity: items_opacity, transparent: items_transparent, side: THREE.DoubleSide});
 		var surface_material = new THREE.MeshPhongMaterial({color: 0xBE645A, opacity: 0.3, transparent: true, side: THREE.BackSide}); //rgb(190,100,90)
 		var width = window.innerWidth - 316;
 		var height = window.innerHeight - 76;
-		var hue_limit = 2/3;
-		var max_hbco = 7.7;
-		var color_factor = hue_limit / max_hbco;
 		
 		var hbco = [0.0, 1.0, 1.5, 2.0, 2.6, 3.2, 3.8, 4.4, 4.9, 5.4, 5.8, 6.2, 6.6, 6.9, 7.2, 7.5, 7.7, 7.7, 7.4, 7.0, 6.4, 5.9, 5.2, 4.6, 4.1];
 		
