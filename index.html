@@ -97,22 +97,7 @@
 			setup();
 			animate();
 			
-			var background_canvas = document.getElementById("hbco-chart");
-			var imageObj = new Image();
-			imageObj.onload = function() {
-				background_context.drawImage(this, 0, 0, this.width, this.height, 0, 0, background_canvas.width, background_canvas.height);
-			};
-			
-			imageObj.src = "./hbco_chart.png";
-			
-			var dynamic_canvas = document.getElementById("hbco-chart-line");
-			var dynamic_context = dynamic_canvas.getContext("2d");
-			
-			dynamic_context.beginPath();
-			dynamic_context.moveTo(25, 0);
-			dynamic_context.lineTo(25, 115);
-			dynamic_context.strokeStyle = '#ff0000';
-			dynamic_context.stroke();
+
 		}
 	</script>
 	
