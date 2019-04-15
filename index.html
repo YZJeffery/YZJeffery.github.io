@@ -16,8 +16,8 @@
 		var items_opacity = 0.4;
 		var items_transparent = true;
 		var unselected_airways = new THREE.MeshPhongMaterial({color: 0xEFD5DC, opacity: items_opacity, transparent: items_transparent, side: THREE.DoubleSide});
-		var width = window.innerWidth - 316;
-		var height = window.innerHeight - 76;
+		var width = window.innerWidth;
+		var height = window.innerHeight;
 		
 		function draw3D() {
 			function setup() {			
@@ -39,7 +39,7 @@
 				});
 			}
 			
-			
+
 			function animate() {
 				requestAnimationFrame(animate);
 				controls.update();
