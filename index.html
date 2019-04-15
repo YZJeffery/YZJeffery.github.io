@@ -85,13 +85,13 @@
 			var ambientLight = new THREE.AmbientLight(0x555555);
 			scene.add(ambientLight);
 			
-			//var directionalLight = new THREE.DirectionalLight(0xe0e0e0);
-			//directionalLight.position.set(5, 2, 5).normalize();
-			//scene.add(directionalLight);
+			var directionalLight = new THREE.DirectionalLight(0xe0e0e0);
+			directionalLight.position.set(5, 2, 5).normalize();
+			scene.add(directionalLight);
 			
-			//var directionalLight2 = new THREE.DirectionalLight(0xe0e0e0);
-			//directionalLight2.position.set(-5, -2, -5).normalize();
-			//scene.add(directionalLight2);
+			var directionalLight2 = new THREE.DirectionalLight(0xe0e0e0);
+			directionalLight2.position.set(-5, -2, -5).normalize();
+			scene.add(directionalLight2);
 			
 			renderer = new THREE.WebGLRenderer();
 			renderer.setSize(width, height);
