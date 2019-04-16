@@ -22,7 +22,7 @@
 		function draw3D() {
 			function setup() {			
 				//try torso
-				jloader.load('./models/dog_body111_1.json', function (geometry) {
+				jloader.load('./models/dog_newbody.json', function (geometry) {
 					var mesh = new THREE.Mesh(geometry, unselected_airways);
 					mesh.name = "airways";
 					pos["airways"] = mesh;
@@ -38,6 +38,7 @@
 					$('#items-list').append('<input type="checkbox" class="item" value="airways" />airways<br/>');
 				});
 			}
+			
 			
 			function animate() {
 				requestAnimationFrame(animate);
