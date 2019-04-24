@@ -79,6 +79,7 @@
 
 			$(document).on('input change', '#hbco-slider', function() {
 				pos["dog_newbody_drug_c"].material.color.setHSL((max_hbco - hbco[$(this).val()]) * color_factor, 1.0, 0.5);
+				
 				var dynamic_canvas = document.getElementById("hbco-chart-line");
 				var dynamic_context = dynamic_canvas.getContext("2d");
 				
@@ -106,15 +107,22 @@
 		}
 	</script>
 </head>
-
 <style>
+	#controls {
+		float: left;
+		width: 290px;
+		margin: 5px;
+		color: white;
+		font-family: impact;
+	}
+	
 	#hbco-chart-container {
 		position: relative;
 	}
 	
 	#hbco-chart, #hbco-chart-line {
 		position: absolute;
-		left: 30;
+		left: 0;
 		top: 25px;
 		width: 100%;
 		height: 100px;
