@@ -100,7 +100,7 @@
 
 			var dynamic_canvas = document.getElementById("hbco-chart-line");
 			var dynamic_context = dynamic_canvas.getContext("2d");
-			
+
 			dynamic_context.beginPath();
 			dynamic_context.moveTo(25, 0);
 			dynamic_context.lineTo(25, 115);
@@ -110,15 +110,66 @@
 	</script>
 </head>
 <style>
+	#title {
+		height: 60px;
+		text-align: center;
+		font-size: 3em;
+		font-family: impact;
+		color: white;
+	}
+		
+	#content {
+		text-align: center;
+	}
+	
+	#viewer {
+		float: left;
+	}
+	
+	#shapecanvas {
+		border: none;
+	}
+	
+	#controls {
+		float: left;
+		width: 290px;
+		margin: 5px;
+		color: white;
+		font-family: impact;
+	}
+	
+	#all-items-container {
+		text-align: left;
+		border: 1px solid white;
+		border-bottom: none;
+		background: white;
+		color: black;
+	}
+	
+	#items-list {
+		height: 100px;
+		text-align: left;
+		border: 1px solid white;
+		overflow-y: scroll;
+	}
+	
+	#item-selected {
+		background: rgba(0,255,0,0.3);
+	}
+	
+	#surface-slider, #hbco-slider {
+		width: 290px;
+	}
+	
 	#hbco-time-container, #hbco-value-container {
 		float: left;
 		width: 50%;
 	}
-		
+	
 	#hbco-chart-container {
 		position: relative;
 	}
-		
+	
 	#hbco-chart, #hbco-chart-line {
 		position: absolute;
 		left: 0;
