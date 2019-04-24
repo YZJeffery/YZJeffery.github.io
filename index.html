@@ -73,10 +73,10 @@
 					});
 
 					var mesh = new THREE.Mesh(geometry, material);
-					mesh.name = "torso";
-					pos["torso"] = mesh;
+					mesh.name = "airways";
+					pos["airways"] = mesh;
 					scene.add(mesh);
-					$('#items-list').append('<input type="checkbox" class="item" value="torso" />torso<br/>');
+					$('#items-list').append('<input type="checkbox" class="item" value="airways" />airways<br/>');
 				});
 				
 				jloader.load('./models/left_lung.json', function (geometry) {
