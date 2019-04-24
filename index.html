@@ -110,13 +110,6 @@
 	</script>
 </head>
 <style>
-	#viewer {
-		float: left;
-	}
-	
-	#shapecanvas {
-		border: none;
-	}
 	
 	#controls {
 		float: left;
@@ -125,7 +118,7 @@
 		color: white;
 		font-family: impact;
 	}
-
+	
 	#hbco-time-container, #hbco-value-container {
 		float: left;
 		width: 50%;
@@ -143,29 +136,16 @@
 		height: 100px;
 	}
 </style>
-
 	<body onload="draw3D();">
-		<div id="title">
-			<span>Smoking in pregnancy</span>
-		</div>
 		<div id="content">
 			<div id="viewer">
 				<span id="shapecanvas"></span>
 			</div>
 			<div id="controls">
-
-				<span>HbCO (16-h exposure):</span><br/>
 				<input id="hbco-slider" type="range" value="0" min="0" max="24" step="1" />
 				<div id="hbco-values">
-					<div id="hbco-time-container">
-						Time: <span id="hbco-time">0</span> h
-					</div>
 					<div id="hbco-value-container">
 						Fetal HbCO: <span id="hbco-value">0</span> %
-					</div>
-					<div id="hbco-chart-container">
-						<canvas id="hbco-chart"></canvas>
-						<canvas id="hbco-chart-line"></canvas>
 					</div>
 				</div>
 			</div>
