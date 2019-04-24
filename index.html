@@ -65,7 +65,7 @@
 					$('#items-list').append('<input type="checkbox" class="item" value="airways" />airways<br/>');
 				});
 				
-				
+
 				//try torso
 				jloader.load('./models/torso.json', function (geometry) {
 					var material = new THREE.MeshPhongMaterial( {
@@ -226,7 +226,7 @@
 			});
 			
 			$(document).on('input change', '#hbco-slider', function() {
-				pos["fetus"].material.color.setHSL((max_hbco - hbco[$(this).val()]) * color_factor, 1.0, 0.5);
+				pos["torso"].material.color.setHSL((max_hbco - hbco[$(this).val()]) * color_factor, 1.0, 0.5);
 				$("#hbco-time").html($(this).val());
 				$("#hbco-value").html(hbco[$(this).val()]);
 				
