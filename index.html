@@ -67,11 +67,15 @@
 				
 				//try torso
 				jloader.load('./models/torso.json', function (geometry) {
-					var mesh = new THREE.Mesh(geometry, unselected_airways);
+					var material = new THREE.MeshPhongMaterial( {
+						color: new THREE.Color("hsl(" + ((max_hbco - hbco[0]) * color_factor * 360) + ", 100%, 50%)"),
+					});
+
+					var mesh = new THREE.Mesh(geometry, material);
 					mesh.name = "airways";
 					pos["airways"] = mesh;
 					scene.add(mesh);
-					$('#items-list').append('<input type="checkbox" class="item" value="airways" />airways<br/>');
+					$('#items-list').append('<input type="checkbox" class="item" value="torso" />torso<br/>');
 				});
 				
 				jloader.load('./models/left_lung.json', function (geometry) {
