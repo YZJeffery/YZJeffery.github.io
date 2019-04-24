@@ -65,7 +65,7 @@
 					$('#items-list').append('<input type="checkbox" class="item" value="airways" />airways<br/>');
 				});
 				
-				
+
 				//try torso
 				jloader.load('./models/torso.json', function (geometry) {
 					var material = new THREE.MeshPhongMaterial( {
@@ -73,8 +73,8 @@
 					});
 
 					var mesh = new THREE.Mesh(geometry, material);
-					mesh.name = "airways";
-					pos["airways"] = mesh;
+					mesh.name = "torso";
+					pos["torso"] = mesh;
 					scene.add(mesh);
 					$('#items-list').append('<input type="checkbox" class="item" value="torso" />torso<br/>');
 				});
