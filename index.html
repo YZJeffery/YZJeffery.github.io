@@ -146,7 +146,7 @@
 		width: 100%;
 		height: 100px;
 	}
-	
+
 </style>
 	<body onload="draw3D();">
 		<div id="content">
@@ -155,6 +155,18 @@
 			</div>
 			<div id="controls">
 				<input id="hbco-slider" type="range" value="0" min="0" max="24" step="1" />
+			</div>
+			<div id="hbco-values">
+				<div id="hbco-time-container">
+					Time: <span id="hbco-time">0</span> h
+				</div>
+				<div id="hbco-value-container">
+					Fetal HbCO: <span id="hbco-value">0</span> %
+				</div>
+				<div id="hbco-chart-container">
+					<canvas id="hbco-chart"></canvas>
+					<canvas id="hbco-chart-line"></canvas>
+				</div>
 			</div>
 		</div>
 	</body>
