@@ -35,6 +35,7 @@
 					mesh.name = "dog_newbody_drug_c";
 					pos["dog_newbody_drug_c"] = mesh;
 					scene.add(mesh);
+					$('#items-list').append('<input type="checkbox" class="item" value="dog_body" />dog_body<br/>');
 
 					surface_mesh = mesh;
 					var box = new THREE.Box3().setFromObject(surface_mesh);
@@ -126,6 +127,13 @@
 		font-family: impact;
 	}
 
+	#items-list {
+		height: 100px;
+		text-align: left;
+		border: 1px solid white;
+		overflow-y: scroll;
+	}
+
 	#surface-slider, #hbco-slider {
 			width: 100px;
 	}
@@ -157,6 +165,13 @@
 			<div id="controls">
 				<input id="hbco-slider" type="range" value="0" min="0" max="24" step="1" />
 			</div>
+			<div id="items-list"></div>
+			<br/>
+			<span>Element selected:</span><br/>
+			<div id="item-selected">&nbsp;</div>
+			<br/>
+			<input type="checkbox" class="surface-item" value="surface" />Hide surface<br/>
+			<br/>
 			<div id="hbco-values">
 				<div id="hbco-time-container">
 					Time: <span id="hbco-time">0</span> h
