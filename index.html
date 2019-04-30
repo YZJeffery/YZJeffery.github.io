@@ -86,20 +86,6 @@
 					}
 				});
 				
-				var sloader = new THREE.STLLoader();
-				sloader.load('./models/pregnant_woman.stl', function(geometry) {
-					var mesh = new THREE.Mesh(geometry, surface_material);
-					mesh.renderOrder = 1;
-					mesh.name = "surface";
-					surface_mesh = mesh;
-					scene.add(mesh);
-					
-					var box = new THREE.Box3().setFromObject(surface_mesh);
-					var center = new THREE.Vector3(box.min.x + ((box.max.x - box.min.x) / 2), box.min.y + ((box.max.y - box.min.y) / 2), box.min.z + ((box.max.z - box.min.z) / 2));
-					
-					controls.target.set(center.x, center.y, center.z);
-					controls.update();
-				});
 			}
 			
 			function animate() {
@@ -132,21 +118,8 @@
 			
 			controls = new THREE.OrbitControls(camera, renderer.domElement);
 			
-			span.addEventListener('mousemove', onDocumentMouseMove, false);
-			span.addEventListener('mousedown', onDocumentMouseDown, false);
-			span.addEventListener('mouseup', onDocumentMouseUp, false);
-			
 			setup();
 			animate();
-			
-			$('.surface-item').change(function() {
-				if ($(this).is(':checked')) {
-					surface_mesh.visible = false;
-				}
-				else {
-					surface_mesh.visible = true;
-				}
-			});
 			
 			$(document).on('input change', '#surface-slider', function() {
 				surface_material.opacity = $(this).val();
