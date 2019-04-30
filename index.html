@@ -46,93 +46,26 @@
 		
 		function draw3D() {
 			function setup() {
-				jloader.load('./models/fetus.json', function (geometry) {
+				jloader.load('./models/dog_newbody_drug_c.json', function (geometry) {
 					var material = new THREE.MeshPhongMaterial( {
 						color: new THREE.Color("hsl(" + ((max_hbco - hbco[0]) * color_factor * 360) + ", 100%, 50%)"),
 					});
-					
+
 					var mesh = new THREE.Mesh(geometry, material);
-					mesh.name = "fetus";
-					pos["fetus"] = mesh;
+					mesh.name = "dog_newbody_drug_c";
+					pos["dog_newbody_drug_c"] = mesh;
 					scene.add(mesh);
-					$('#items-list').append('<input type="checkbox" class="item" value="fetus" />fetus<br/>');
+					$('#items-list').append('<input type="checkbox" class="item" value="dog_body" />dog_body<br/>');
+
+					surface_mesh = mesh;
+					var box = new THREE.Box3().setFromObject(surface_mesh);
+					var center = new THREE.Vector3(box.min.x + ((box.max.x - box.min.x) / 2), box.min.y + ((box.max.y - box.min.y) / 2), box.min.z + ((box.max.z - box.min.z) / 2));
+					
+					controls.target.set(center.x, center.y, center.z);
+					controls.update();
 				});
+			
 				
-				jloader.load('./models/airways.json', function (geometry) {
-					var mesh = new THREE.Mesh(geometry, unselected_airways);
-					mesh.name = "airways";
-					pos["airways"] = mesh;
-					scene.add(mesh);
-					$('#items-list').append('<input type="checkbox" class="item" value="airways" />airways<br/>');
-				});
-				
-				//try torso
-				jloader.load('./models/torso.json', function (geometry) {
-					var mesh = new THREE.Mesh(geometry, unselected_airways);
-					mesh.name = "airways";
-					pos["airways"] = mesh;
-					scene.add(mesh);
-					$('#items-list').append('<input type="checkbox" class="item" value="airways" />airways<br/>');
-				});
-				
-				jloader.load('./models/left_lung.json', function (geometry) {
-					var mesh = new THREE.Mesh(geometry, unselected_left_lung);
-					mesh.renderOrder = 0.1;
-					mesh.name = "left_lung";
-					pos["left_lung"] = mesh;
-					scene.add(mesh);
-					$('#items-list').append('<input type="checkbox" class="item" value="left_lung" />left_lung<br/>');
-				});
-				
-				jloader.load('./models/right_lung.json', function (geometry) {
-					var mesh = new THREE.Mesh(geometry, unselected_right_lung);
-					mesh.renderOrder = 0.1;
-					mesh.name = "right_lung";
-					pos["right_lung"] = mesh;
-					scene.add(mesh);
-					$('#items-list').append('<input type="checkbox" class="item" value="right_lung" />right_lung<br/>');
-				});
-				
-				jloader.load('./models/heart.json', function (geometry) {
-					var mesh = new THREE.Mesh(geometry, unselected_heart);
-					mesh.name = "heart";
-					pos["heart"] = mesh;
-					scene.add(mesh);
-					$('#items-list').append('<input type="checkbox" class="item" value="heart" />heart<br/>');
-				});
-				
-				jloader.load('./models/pelvis.json', function (geometry) {
-					var mesh = new THREE.Mesh(geometry, unselected_pelvis);
-					mesh.name = "pelvis";
-					pos["pelvis"] = mesh;
-					scene.add(mesh);
-					$('#items-list').append('<input type="checkbox" class="item" value="pelvis" />pelvis<br/>');
-				});
-				
-				jloader.load('./models/uterus.json', function (geometry) {
-					var mesh = new THREE.Mesh(geometry, unselected_uterus);
-					mesh.renderOrder = 0.1;
-					mesh.name = "uterus";
-					pos["uterus"] = mesh;
-					scene.add(mesh);
-					$('#items-list').append('<input type="checkbox" class="item" value="uterus" />uterus<br/>');
-				});
-				
-				jloader.load('./models/vocal_tract.json', function (geometry) {
-					var mesh = new THREE.Mesh(geometry, unselected_vocal_tract);
-					mesh.name = "vocal_tract";
-					pos["vocal_tract"] = mesh;
-					scene.add(mesh);
-					$('#items-list').append('<input type="checkbox" class="item" value="vocal_tract" />vocal_tract<br/>');
-				});
-				
-				jloader.load('./models/arteries.json', function (geometry) {
-					var mesh = new THREE.Mesh(geometry, unselected_arteries);
-					mesh.name = "arteries";
-					pos["arteries"] = mesh;
-					scene.add(mesh);
-					$('#items-list').append('<input type="checkbox" class="item" value="arteries" />arteries<br/>');
-				});
 				
 				$(document).on('change', '.item', function() {
 					var name = $(this).attr('value');
@@ -171,7 +104,7 @@
 				});
 			}
 			
-			
+
 			function animate() {
 				requestAnimationFrame(animate);
 				controls.update();
