@@ -120,7 +120,7 @@
 			
 			setup();
 			animate();
-			
+
 			$(document).on('input change', '#surface-slider', function() {
 				surface_material.opacity = $(this).val();
 			});
@@ -162,48 +162,6 @@
 			dynamic_context.strokeStyle = '#ff0000';
 			dynamic_context.stroke();
 		}
-		
-		function onDocumentMouseMove(event) {
-			var offset = $('#shapecanvas canvas').offset();
-			mouse.x = ((event.pageX - offset.left) / width) * 2 - 1;
-			mouse.y = - ((event.pageY - offset.top) / height) * 2 + 1;
-		}
-		
-		function onDocumentMouseDown(event) {
-			var offset = $('#shapecanvas canvas').offset();
-			last_mouse.x = ((event.pageX - offset.left) / width) * 2 - 1;
-			last_mouse.y = - ((event.pageY - offset.top) / height) * 2 + 1;
-		}
-		
-		function onDocumentMouseUp(event) {
-			var offset = $('#shapecanvas canvas').offset();
-			mouse.x = ((event.pageX - offset.left) / width) * 2 - 1;
-			mouse.y = - ((event.pageY - offset.top) / height) * 2 + 1;
-			
-			if (Math.sqrt((mouse.x - last_mouse.x) * (mouse.x - last_mouse.x) + (mouse.y - last_mouse.y) * (mouse.y - last_mouse.y)) < 0.005) {
-				raycaster.setFromCamera(mouse, camera);
-				var models = $.map(pos, function(value, key) { return value });
-				var hits = raycaster.intersectObjects(models);
-								
-				for (var key in pos) pos[key].material.transparent = true;
-				$('#item-selected').html('&nbsp;');
-				
-				if (hits.length > 0) {
-					var selected = hits[0].object;
-					selected.material.transparent = false;
-					$('#item-selected').html(selected.name);
-				}
-			}
-		}
-		
-		// Function to execute when the window changes its size
-		window.addEventListener('resize', function() {
-			width = window.innerWidth - 316;
-			height = window.innerHeight - 76;
-			camera.aspect = width / height;
-			camera.updateProjectionMatrix();
-			renderer.setSize(width, height);
-		}, false);
 	</script>
 	
 	<style>
