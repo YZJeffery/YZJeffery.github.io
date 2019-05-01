@@ -43,7 +43,8 @@
 		var color_factor = hue_limit / max_hbco;
 		
 		var hbco = [0.0, 1.0, 1.5, 2.0, 2.6, 3.2, 3.8, 4.4, 4.9, 5.4, 5.8, 6.2, 6.6, 6.9, 7.2, 7.5, 7.7, 7.7, 7.4, 7.0, 6.4, 5.9, 5.2, 4.6, 4.1];
-		
+		var Drug_c = [0.0, 1.0, 2.0, 2.5, 2.7, 2.8, 2.7, 2.6, 2.5, 2.3, 2.1, 1.9, 1.7, 1.6, 1.5, 1.4, 1.3, 1.2, 1.0, 0.9, 0.8, 0.7, 0.65, 0.6, 0.55];
+
 		function draw3D() {
 			function setup() {
 				jloader.load('./models/dog_newbody_drug_c.json', function (geometry) {
@@ -120,11 +121,6 @@
 			
 			setup();
 			animate();
-
-			$(document).on('input change', '#surface-slider', function() {
-				surface_material.opacity = $(this).val();
-			});
-			
 
 			$(document).on('input change', '#hbco-slider', function() {
 				pos["dog_newbody_drug_c"].material.color.setHSL((max_hbco - hbco[$(this).val()]) * color_factor, 1.0, 0.5);
@@ -233,7 +229,7 @@
 			width: 100%;
 			height: 130px;
 		}
-		
+
 	</style>
 
 	</head>
