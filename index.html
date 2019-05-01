@@ -38,11 +38,14 @@
 		var surface_material = new THREE.MeshPhongMaterial({color: 0xBE645A, opacity: 0.3, transparent: true, side: THREE.BackSide}); //rgb(190,100,90)
 		var width = window.innerWidth - 316;
 		var height = window.innerHeight - 76;
+
 		var hue_limit = 2/3;
 		var max_hbco = 7.7;
 		var color_factor = hue_limit / max_hbco;
-		
 		var hbco = [0.0, 1.0, 1.5, 2.0, 2.6, 3.2, 3.8, 4.4, 4.9, 5.4, 5.8, 6.2, 6.6, 6.9, 7.2, 7.5, 7.7, 7.7, 7.4, 7.0, 6.4, 5.9, 5.2, 4.6, 4.1];
+
+		var max_Drug_c = 2.8;
+		var color_factor1 = hue_limit / max_Drug_c;
 		var Drug_c = [0.0, 1.0, 2.0, 2.5, 2.7, 2.8, 2.7, 2.6, 2.5, 2.3, 2.1, 1.9, 1.7, 1.6, 1.5, 1.4, 1.3, 1.2, 1.0, 0.9, 0.8, 0.7, 0.65, 0.6, 0.55];
 
 		function draw3D() {
@@ -123,9 +126,10 @@
 			animate();
 
 			$(document).on('input change', '#hbco-slider', function() {
-				pos["dog_newbody_drug_c"].material.color.setHSL((max_hbco - hbco[$(this).val()]) * color_factor, 1.0, 0.5);
+				pos["dog_newbody_drug_c"].material.color.setHSL((max_Drug_c - Drug_c[$(this).val()]) * color_factor1, 1.0, 0.5);
 				$("#hbco-time").html($(this).val());
-				$("#hbco-value").html(hbco[$(this).val()]);
+				console.log($(this).val());
+				$("#hbco-value").html(Drug_c[$(this).val()]);
 				
 				var dynamic_canvas = document.getElementById("hbco-chart-line");
 				var dynamic_context = dynamic_canvas.getContext("2d");
