@@ -127,7 +127,7 @@
 			
 			$(document).on('input change', '#hbco-slider', function() {
 				pos["dog_newbody_drug_c"].material.color.setHSL((max_hbco - hbco[$(this).val()]) * color_factor, 1.0, 0.5);
-				$("#hbco-time").html($(this).val());
+				$("#hbco-time").html($(this).val()+1);
 				$("#hbco-value").html(hbco[$(this).val()]);
 				
 				var dynamic_canvas = document.getElementById("hbco-chart-line");
