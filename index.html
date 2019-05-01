@@ -125,6 +125,7 @@
 				surface_material.opacity = $(this).val();
 			});
 			
+			
 			$(document).on('input change', '#hbco-slider', function() {
 				pos["dog_newbody_drug_c"].material.color.setHSL((max_hbco - hbco[$(this).val()]) * color_factor, 1.0, 0.5);
 				$("#hbco-time").html($(this).val()+1);
