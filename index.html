@@ -121,7 +121,7 @@
 			span.appendChild(renderer.domElement);
 			
 			controls = new THREE.OrbitControls(camera, renderer.domElement);
-			
+
 			setup();
 			animate();
 
@@ -133,7 +133,7 @@
 				
 				var dynamic_canvas = document.getElementById("hbco-chart-line");
 				var dynamic_context = dynamic_canvas.getContext("2d");
-				var x_pos = 25 + (5.6 * parseInt(time_value))/2;
+				var x_pos = 25 + 5.6 * parseInt(time_value);
 				
 				dynamic_context.clearRect(0, 0, dynamic_canvas.width, dynamic_canvas.height);
 				dynamic_context.beginPath();
