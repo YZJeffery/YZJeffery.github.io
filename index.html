@@ -19,22 +19,6 @@
 		var renderer;
 		var items_opacity = 0.4;
 		var items_transparent = true;
-		var unselected_airways = new THREE.MeshPhongMaterial({color: 0xEFD5DC, opacity: items_opacity, transparent: items_transparent, side: THREE.DoubleSide});
-		var selected_airways = new THREE.MeshPhongMaterial({color: 0xEFD5DC, opacity: items_opacity, transparent: items_transparent, side: THREE.DoubleSide});
-		var unselected_left_lung = new THREE.MeshPhongMaterial({color: 0xCCA994, opacity: items_opacity, transparent: items_transparent, side: THREE.BackSide});
-		var selected_left_lung = new THREE.MeshPhongMaterial({color: 0xCCA994, opacity: items_opacity, transparent: items_transparent, side: THREE.BackSide});
-		var unselected_right_lung = new THREE.MeshPhongMaterial({color: 0xCCA994, opacity: items_opacity, transparent: items_transparent, side: THREE.FrontSide});
-		var selected_right_lung = new THREE.MeshPhongMaterial({color: 0xCCA994, opacity: items_opacity, transparent: items_transparent, side: THREE.FrontSide});
-		var unselected_heart = new THREE.MeshPhongMaterial({color: 0xA83121, opacity: items_opacity, transparent: items_transparent, side: THREE.BackSide});
-		var selected_heart = new THREE.MeshPhongMaterial({color: 0xA83121, opacity: items_opacity, transparent: items_transparent, side: THREE.BackSide});
-		var unselected_pelvis = new THREE.MeshPhongMaterial({color: 0xAAAAAA, opacity: items_opacity, transparent: items_transparent, side: THREE.BackSide});
-		var selected_pelvis = new THREE.MeshPhongMaterial({color: 0x22AA00, opacity: items_opacity, transparent: items_transparent, side: THREE.BackSide});
-		var unselected_uterus = new THREE.MeshPhongMaterial({color: 0xF77E7E, opacity: items_opacity, transparent: items_transparent, side: THREE.FrontSide});
-		var selected_uterus = new THREE.MeshPhongMaterial({color: 0xF77E7E, opacity: items_opacity, transparent: items_transparent, side: THREE.FrontSide});
-		var unselected_vocal_tract = new THREE.MeshPhongMaterial({color: 0xEFD5DC, opacity: items_opacity, transparent: items_transparent, side: THREE.BackSide});
-		var selected_vocal_tract = new THREE.MeshPhongMaterial({color: 0xEFD5DC, opacity: items_opacity, transparent: items_transparent, side: THREE.BackSide});
-		var unselected_arteries = new THREE.MeshPhongMaterial({color: 0xBA2142, opacity: items_opacity, transparent: items_transparent, side: THREE.DoubleSide});
-		var selected_arteries = new THREE.MeshPhongMaterial({color: 0xBA2142, opacity: items_opacity, transparent: items_transparent, side: THREE.DoubleSide});
 		var surface_material = new THREE.MeshPhongMaterial({color: 0xBE645A, opacity: 0.3, transparent: true, side: THREE.BackSide}); //rgb(190,100,90)
 		var width = window.innerWidth - 316;
 		var height = window.innerHeight - 76;
@@ -128,7 +112,7 @@
 			$(document).on('input change', '#hbco-slider', function() {
 				var time_value = $(this).val();
 				pos["dog_newbody_drug_c"].material.color.setHSL((max_Drug_c - Drug_c[$(this).val()]) * color_factor1, 1.0, 0.5);
-				
+
 				$("#hbco-time").html(time_value);
 				$("#hbco-value").html(Drug_c[$(this).val()]);
 				
