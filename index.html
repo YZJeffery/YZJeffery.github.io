@@ -54,6 +54,18 @@
 					controls.target.set(center.x, center.y, center.z);
 					controls.update();
 				});
+
+				jloader.load('./models/dog_newbody_2.json', function (geometry) {
+					var material = new THREE.MeshPhongMaterial( {
+						color: new THREE.Color("hsl(" + ((max_Drug_c - Drug_c[0]) * color_factor1 * 360) + ", 100%, 50%)"),
+					});
+
+					var mesh = new THREE.Mesh(geometry, material);
+					mesh.name = "dog_newbody_2";
+					pos["dog_newbody_2"] = mesh;
+					scene.add(mesh);
+					$('#items-list').append('<input type="checkbox" class="item" value="dog_newbody_2" />dog_body<br/>');
+				});
 			
 				$(document).on('change', '.item', function() {
 					var name = $(this).attr('value');
@@ -111,7 +123,7 @@
 			setup();
 			animate();
 
-			
+
 			$(document).on('input change', '#hbco-slider', function() {
 				var time_value = $(this).val();
 				pos["dog_newbody_drug_c"].material.color.setHSL((max_Drug_c - Drug_c[time_value/3]) * color_factor1, 1.0, 0.5);
