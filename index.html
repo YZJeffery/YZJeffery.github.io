@@ -160,6 +160,43 @@
 			dynamic_context.lineTo(25, 115);
 			dynamic_context.strokeStyle = '#ff0000';
 			dynamic_context.stroke();
+
+			$(document).on('input change', '#dog-slider', function() {
+				var time_value = $(this).val();
+				pos["dog_newbody_drug_c"].material.color.setHSL((max_Drug_c - Drug_c[time_value/3]) * color_factor1, 1.0, 0.5);
+				$("#dog-time").html(time_value);
+				$("#dog-value").html(Drug_c[$(this).val()]);
+				
+				var dynamic_canvas_2 = document.getElementById("dog-chart-line");
+				var dynamic_context_2 = dynamic_canvas_2.getContext("2d");
+				var x_pos_2 = 25 + 1.43 * parseInt(time_value);
+
+				dynamic_context_2.clearRect(0, 0, dynamic_canvas_2.width, dynamic_canvas_2.height);
+				dynamic_context_2.beginPath();
+				dynamic_context_2.moveTo(x_pos_2, 0);
+				dynamic_context_2.lineTo(x_pos_2, 115);
+				dynamic_context_2.strokeStyle = '#ff0000';
+				dynamic_context_2.stroke();
+			});
+			
+			var background_canvas_2 = document.getElementById("dog-chart");
+			var background_context_2 = background_canvas_2.getContext("2d");
+			
+			var imageObj_2 = new Image();
+			imageObj_2.onload = function() {
+				background_context_2.drawImage(this, 0, 0, this.width, this.height, 0, 0, background_canvas_2.width, background_canvas_2.height);
+			};
+			
+			imageObj_2.src = "./concentration3.png";
+			
+			var dynamic_canvas_2 = document.getElementById("dog-chart-line");
+			var dynamic_context_2 = dynamic_canvas_2.getContext("2d");
+			
+			dynamic_context_2.beginPath();
+			dynamic_context_2.moveTo(25, 0);
+			dynamic_context_2.lineTo(25, 115);
+			dynamic_context_2.strokeStyle = '#ff0000';
+			dynamic_context_2.stroke();
 		}
 	</script>
 	
