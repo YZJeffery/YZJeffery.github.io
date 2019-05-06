@@ -164,7 +164,7 @@
 			
 			$(document).on('input change', '#dog-slider', function() {
 				var time_value = $(this).val();
-				pos["dog_newbody_drug_c"].material.color.setHSL((max_Drug_c - Drug_c[time_value/3]) * color_factor1, 1.0, 0.5);
+				pos["dog_newbody_2"].material.color.setHSL((max_Drug_c - Drug_c[time_value/3]) * color_factor1, 1.0, 0.5);
 				$("#dog-time").html(time_value);
 				$("#dog-value").html(Drug_c[$(this).val()]);
 				
