@@ -198,6 +198,13 @@
 			dynamic_context_2.strokeStyle = '#ff0000';
 			dynamic_context_2.stroke();
 		}
+		window.addEventListener('resize', function() {
+			width = window.innerWidth - 316;
+			height = window.innerHeight - 76;
+			camera.aspect = width / height;
+			camera.updateProjectionMatrix();
+			renderer.setSize(width, height);
+		}, false);
 	</script>
 	
 	<style>
