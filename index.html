@@ -36,16 +36,16 @@
 
 		function draw3D() {
 			function setup() {
-				jloader.load('./models/dog_newbody_drug_c.json', function (geometry) {
+				jloader.load('./models/dogbody1.json', function (geometry) {
 					var material = new THREE.MeshPhongMaterial( {
 						color: new THREE.Color("hsl(" + ((max_Drug_c - Drug_c[0]) * color_factor1 * 360) + ", 100%, 50%)"),
 					});
 
 					var mesh = new THREE.Mesh(geometry, material);
-					mesh.name = "dog_newbody_drug_c";
-					pos["dog_newbody_drug_c"] = mesh;
+					mesh.name = "dogbody1";
+					pos["dogbody1"] = mesh;
 					scene.add(mesh);
-					$('#items-list').append('<input type="checkbox" class="item" value="dog_newbody_drug_c" />dog_body<br/>');
+					$('#items-list').append('<input type="checkbox" class="item" value="dogbody1" />dog_body<br/>');
 
 					surface_mesh = mesh;
 					var box = new THREE.Box3().setFromObject(surface_mesh);
@@ -55,16 +55,16 @@
 					controls.update();
 				});
 
-				jloader.load('./models/dog_newbody_2.json', function (geometry) {
+				jloader.load('./models/dogbody2.json', function (geometry) {
 					var material = new THREE.MeshPhongMaterial( {
 						color: new THREE.Color("hsl(" + ((max_Drug_c - Drug_c[0]) * color_factor1 * 360) + ", 100%, 50%)"),
 					});
 
 					var mesh = new THREE.Mesh(geometry, material);
-					mesh.name = "dog_newbody_2";
-					pos["dog_newbody_2"] = mesh;
+					mesh.name = "dogbody2";
+					pos["dogbody2"] = mesh;
 					scene.add(mesh);
-					$('#items-list').append('<input type="checkbox" class="item" value="dog_newbody_2" />dog_body_2<br/>');
+					$('#items-list').append('<input type="checkbox" class="item" value="dogbody2" />dog_body_2<br/>');
 				});
 			
 				$(document).on('change', '.item', function() {
@@ -126,7 +126,7 @@
 
 			$(document).on('input change', '#hbco-slider', function() {
 				var time_value = $(this).val();
-				pos["dog_newbody_drug_c"].material.color.setHSL((max_Drug_c - Drug_c[time_value/3]) * color_factor1, 1.0, 0.5);
+				pos["dogbody1"].material.color.setHSL((max_Drug_c - Drug_c[time_value/3]) * color_factor1, 1.0, 0.5);
 				$("#hbco-time").html(time_value);
 				$("#hbco-value").html(Drug_c[$(this).val()]);
 				
@@ -163,7 +163,7 @@
 
 			$(document).on('input change', '#dog-slider', function() {
 				var time_value = $(this).val();
-				pos["dog_newbody_2"].material.color.setHSL((max_Drug_c - Drug_c[time_value/3]) * color_factor1, 1.0, 0.5);
+				pos["dogbody2"].material.color.setHSL((max_Drug_c - Drug_c[time_value/3]) * color_factor1, 1.0, 0.5);
 				$("#dog-time").html(time_value);
 				$("#dog-value").html(Drug_c[$(this).val()]);
 				
