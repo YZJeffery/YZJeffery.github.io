@@ -45,7 +45,7 @@
 					mesh.name = "dog_try_1";
 					pos["dog_try_1"] = mesh;
 					scene.add(mesh);
-					$('#items-list').append('<input type="checkbox" class="item" value="dog_try_1" />dog_body<br/>');
+					$('#items-list').append('<input type="checkbox" class="item" value="dog_try_1" checked/>dog_body<br/>');
 
 					surface_mesh = mesh;
 					var box = new THREE.Box3().setFromObject(surface_mesh);
@@ -64,10 +64,10 @@
 					mesh.name = "dogbody2";
 					pos["dogbody2"] = mesh;
 					scene.add(mesh);
-					$('#items-list').append('<input type="checkbox" class="item" value="dogbody2" />dog_body_2<br/>');
+					$('#items-list').append('<input type="checkbox" class="item" value="dogbody2" checked/>dog_body_2<br/>');
 				});
 			
-			
+
 				$(document).on('change', '.item', function() {
 					var name = $(this).attr('value');
 					console.log(this);
