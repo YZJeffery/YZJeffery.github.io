@@ -140,7 +140,7 @@
 				dynamic_context.strokeStyle = '#ff0000';
 				dynamic_context.stroke();
 
-				pos["dogbody2"].material.color.setHSL((max_Drug_c - Drug_c[time_value/3]) * color_factor1, 1.0, 0.5);
+				pos["dogbody2"].material.color.setHSL((max_Drug_c - Drug_c[time_value/3]) * (color_factor1 + 1), 1.0, 0.5);
 				$("#dog-time").html(time_value);
 				$("#dog-value").html(Drug_c[$(this).val()]);
 				
