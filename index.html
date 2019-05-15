@@ -69,7 +69,7 @@
 			
 				$(document).on('change', '.item', function() {
 					var name = $(this).attr('value');
-					
+					console.log(name);
 					if ($(this).is(':checked')) {
 						pos[name].visible = true;
 					}
