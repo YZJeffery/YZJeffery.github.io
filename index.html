@@ -70,10 +70,10 @@
 				$(document).on('change', '.item', function() {
 					var name = $(this).attr('value');
 					if ($(this).is(':checked')) {
-						pos[name].visible = false;
+						pos[name].visible = true;
 					}
 					else {
-						pos[name].visible = true;
+						pos[name].visible = false;
 					}
 				});
 				
@@ -323,7 +323,7 @@
 			<div id="controls">
 				<span>CONTROLS</span><br/>
 				<br/>
-				<span>Check to hide / Uncheck to show</span>
+				<span>Check to show / Uncheck to hide</span>
 				<div id="items-list"></div>
 				<br/>
 				<span>Drug_c:</span><br/>
