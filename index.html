@@ -80,11 +80,11 @@
 				$(document).on('change', '.all-items', function() {
 					if ($(this).is(':checked')) {
 						$('.item').prop('checked', true);
-						for (var key in pos) pos[key].visible = false;
+						for (var key in pos) pos[key].visible = true;
 					}
 					else {
 						$('.item').prop('checked', false);
-						for (var key in pos) pos[key].visible = true;
+						for (var key in pos) pos[key].visible = false;
 					}
 				});
 				
