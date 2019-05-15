@@ -121,8 +121,7 @@
 
 			setup();
 			animate();
-
-
+			
 			$(document).on('input change', '#hbco-slider', function() {
 				var time_value = $(this).val();
 				pos["dog_try_1"].material.color.setHSL((max_Drug_c - Drug_c[time_value/3]) * color_factor1, 1.0, 0.5);
