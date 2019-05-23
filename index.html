@@ -45,7 +45,7 @@
 					mesh.name = "dog_try_1";
 					pos["dog_try_1"] = mesh;
 					scene.add(mesh);
-					$('#items-list').append('<input type="checkbox" class="item" value="dog_try_1","imageObj" checked/>dog_body<br/>');
+					$('#items-list').append('<input type="checkbox" class="item" value="dog_try_1" checked/>dog_body<br/>');
 
 					surface_mesh = mesh;
 					var box = new THREE.Box3().setFromObject(surface_mesh);
@@ -70,15 +70,18 @@
 				$(document).on('change', '.item', function() {
 					var name = $(this).attr('value');
 					console.log(name);
+					var background_canvas = document.getElementById("hbco-chart");
+					var dynamic_canvas = document.getElementById("hbco-chart-line");
+					var background_canvas_2 = document.getElementById("dog-chart");
+					var dynamic_canvas_2 = document.getElementById("dog-chart-line");
+
 					if ($(this).is(':checked')) {
 						pos[name].visible = true;
-						$('#dog-chart').visible = true;
-						$('#dog-chart-line').visible = true;
+						background_canvas.visible = true;
 					}
 					else {
 						pos[name].visible = false;
-						$('#dog-chart').visible = false;
-						$('#dog-chart-line').visible = false;
+						background_canvas.visible = false;
 					}
 				});
 
@@ -168,6 +171,7 @@
 			
 			imageObj.src = "./hbco_chart.png";
 			
+
 			var dynamic_canvas = document.getElementById("hbco-chart-line");
 			var dynamic_context = dynamic_canvas.getContext("2d");
 			
