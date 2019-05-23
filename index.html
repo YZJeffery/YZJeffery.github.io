@@ -70,19 +70,32 @@
 				$(document).on('change', '.item', function() {
 					var name = $(this).attr('value');
 					console.log(name);
-					var background_canvas = document.getElementById("hbco-chart");
+					//var background_canvas = document.getElementById("hbco-chart");
 					//var dynamic_canvas = document.getElementById("hbco-chart-line");
+
 					//var background_canvas_2 = document.getElementById("dog-chart");
 					//var dynamic_canvas_2 = document.getElementById("dog-chart-line");
-
-					if ($(this).is(':checked')) {
-						pos[name].visible = true;
-						document.getElementById("hbco-chart").style.display = "block";
+					if (name === "dog_try_1") {
+						if ($(this).is(':checked')) {
+							pos[name].visible = true;
+							document.getElementById("hbco-chart").style.display = "block";
+						}
+						else {
+							pos[name].visible = false;
+							document.getElementById("hbco-chart").style.display = "none";
+						}
 					}
 					else {
-						pos[name].visible = false;
-						document.getElementById("hbco-chart").style.display = "none";
+						if ($(this).is(':checked')) {
+							pos[name].visible = true;
+							document.getElementById("dog-chart").style.display = "block";
+						}
+						else {
+							pos[name].visible = false;
+							document.getElementById("dog-chart").style.display = "none";
+						}
 					}
+					
 				});
 
 				$(document).on('change', '.all-items', function() {
