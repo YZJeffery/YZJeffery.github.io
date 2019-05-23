@@ -45,7 +45,7 @@
 					mesh.name = "dog_try_1";
 					pos["dog_try_1"] = mesh;
 					scene.add(mesh);
-					$('#items-list').append('<input type="checkbox" class="item" value="dog_try_1" checked/>dog_body<br/>');
+					$('#items-list').append('<input type="checkbox" class="item" value="dog_try_1","imageObj" checked/>dog_body<br/>');
 
 					surface_mesh = mesh;
 					var box = new THREE.Box3().setFromObject(surface_mesh);
@@ -72,13 +72,11 @@
 					console.log(name);
 					if ($(this).is(':checked')) {
 						pos[name].visible = true;
-						pos['#dog-chart-container'].visible = true;
 						$('#dog-chart').visible = true;
 						$('#dog-chart-line').visible = true;
 					}
 					else {
 						pos[name].visible = false;
-						pos['#dog-chart-container'].visible = false;
 						$('#dog-chart').visible = false;
 						$('#dog-chart-line').visible = false;
 					}
