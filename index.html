@@ -72,9 +72,11 @@
 					console.log(name);
 					if ($(this).is(':checked')) {
 						pos[name].visible = true;
+						$('#dog-chart-container').visible = true;
 					}
 					else {
 						pos[name].visible = false;
+						$('#dog-chart-container').visible = false;
 					}
 				});
 				
