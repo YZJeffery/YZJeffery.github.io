@@ -71,17 +71,17 @@
 					var name = $(this).attr('value');
 					console.log(name);
 					var background_canvas = document.getElementById("hbco-chart");
-					var dynamic_canvas = document.getElementById("hbco-chart-line");
-					var background_canvas_2 = document.getElementById("dog-chart");
-					var dynamic_canvas_2 = document.getElementById("dog-chart-line");
+					//var dynamic_canvas = document.getElementById("hbco-chart-line");
+					//var background_canvas_2 = document.getElementById("dog-chart");
+					//var dynamic_canvas_2 = document.getElementById("dog-chart-line");
 
 					if ($(this).is(':checked')) {
 						pos[name].visible = true;
-						background_canvas.visible = true;
+						document.getElementById("hbco-chart").style.display = "block";
 					}
 					else {
 						pos[name].visible = false;
-						background_canvas.visible = false;
+						document.getElementById("hbco-chart").style.display = "none";
 					}
 				});
 
