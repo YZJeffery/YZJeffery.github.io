@@ -72,19 +72,19 @@
 					console.log(name);
 					if ($(this).is(':checked')) {
 						pos[name].visible = true;
-						$('#dog-chart-container').visible = true;
+						pos['#dog-chart-container'].visible = true;
 						$('#dog-chart').visible = true;
 						$('#dog-chart-line').visible = true;
 					}
 					else {
 						pos[name].visible = false;
-						$('#dog-chart-container').visible = false;
+						pos['#dog-chart-container'].visible = false;
 						$('#dog-chart').visible = false;
 						$('#dog-chart-line').visible = false;
 					}
 				});
 				
-				
+
 				$(document).on('change', '.all-items', function() {
 					if ($(this).is(':checked')) {
 						$('.item').prop('checked', true);
