@@ -36,16 +36,16 @@
 
 		function draw3D() {
 			function setup() {
-				jloader.load('./models/dog_try_1.json', function (geometry) {
+				jloader.load('./models/dog_wholebody_1.json', function (geometry) {
 					var material = new THREE.MeshPhongMaterial( {
 						color: new THREE.Color("hsl(" + ((max_Drug_c - Drug_c[0]) * color_factor1 * 360) + ", 100%, 50%)"),
 					});
 
 					var mesh = new THREE.Mesh(geometry, material);
-					mesh.name = "dog_try_1";
-					pos["dog_try_1"] = mesh;
+					mesh.name = "dog_wholebody_1";
+					pos["dog_wholebody_1"] = mesh;
 					scene.add(mesh);
-					$('#items-list').append('<input type="checkbox" class="item" value="dog_try_1" checked/>dog_body<br/>');
+					$('#items-list').append('<input type="checkbox" class="item" value="dog_wholebody_1" checked/>dog_body<br/>');
 
 					surface_mesh = mesh;
 					var box = new THREE.Box3().setFromObject(surface_mesh);
@@ -75,7 +75,7 @@
 
 					//var background_canvas_2 = document.getElementById("dog-chart");
 					//var dynamic_canvas_2 = document.getElementById("dog-chart-line");
-					if (name === "dog_try_1") {
+					if (name === "dog_wholebody_1") {
 						if ($(this).is(':checked')) {
 							pos[name].visible = true;
 							document.getElementById("hbco-chart").style.display = "block";
@@ -147,7 +147,7 @@
 
 			$(document).on('input change', '#hbco-slider', function() {
 				var time_value = $(this).val();
-				pos["dog_try_1"].material.color.setHSL((max_Drug_c - Drug_c[time_value/3]) * color_factor1, 1.0, 0.5);
+				pos["dog_wholebody_1"].material.color.setHSL((max_Drug_c - Drug_c[time_value/3]) * color_factor1, 1.0, 0.5);
 				$("#hbco-time").html(time_value);
 				$("#hbco-value").html(Drug_c[$(this).val()]);
 				
