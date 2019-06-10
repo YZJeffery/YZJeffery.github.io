@@ -55,16 +55,16 @@
 					controls.update();
 				});
 
-				jloader.load('./models/dogbody2.json', function (geometry) {
+				jloader.load('./models/dog_both_kidney.json', function (geometry) {
 					var material = new THREE.MeshPhongMaterial( {
 						color: new THREE.Color("hsl(" + ((max_Drug_c - Drug_c[0]) * color_factor1 * 360) + ", 100%, 50%)"),
 					});
 
 					var mesh = new THREE.Mesh(geometry, material);
-					mesh.name = "dogbody2";
-					pos["dogbody2"] = mesh;
+					mesh.name = "dog_both_kidney";
+					pos["dog_both_kidney"] = mesh;
 					scene.add(mesh);
-					$('#items-list').append('<input type="checkbox" class="item" value="dogbody2" checked/>dog_body_2<br/>');
+					$('#items-list').append('<input type="checkbox" class="item" value="dog_both_kidney" checked/>dog_both_kidney<br/>');
 				});
 			
 				$(document).on('change', '.item', function() {
@@ -162,7 +162,7 @@
 				dynamic_context.strokeStyle = '#ff0000';
 				dynamic_context.stroke();
 
-				pos["dogbody2"].material.color.setHSL((max_Drug_c - Drug_c[time_value/3]) * (color_factor1 + 1), 1.0, 0.5);
+				pos["dog_both_kidney"].material.color.setHSL((max_Drug_c - Drug_c[time_value/3]) * (color_factor1 + 1), 1.0, 0.5);
 				$("#dog-time").html(time_value);
 				$("#dog-value").html(Drug_c[$(this).val()]);
 				
